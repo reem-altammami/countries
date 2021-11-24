@@ -9,7 +9,7 @@ import java.util.*
 
 
 private const val BASE_URL =
-"    https://countriesnow.space/api/v0.1/countries/flag/"
+"https://countriesnow.space"
 
 
 private val moshi = Moshi.Builder()
@@ -25,8 +25,8 @@ private val retrofit = Retrofit.Builder()
 
 
 interface CountriesApiService {
-    @GET("images")
-    suspend fun getPhotos() : List<ContriesPhoto>
+    @GET("/api/v0.1/countries/flag/images")
+    suspend fun getPhotos() : Respons
 }
 
 object CountriesApi {

@@ -21,7 +21,7 @@ class ConutriesViewModel : ViewModel() {
 
             try {
                 val listResult = CountriesApi.retrofitService.getPhotos()
-                _status.value = "Success: ${listResult.size} Countries photos retrieved"
+                _status.value = "Success: ${listResult.data.size} Countries photos retrieved"
             } catch (e: Exception) {
                 _status.value = "Failure: ${e.message}"
 
