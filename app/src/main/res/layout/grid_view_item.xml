@@ -8,19 +8,28 @@
             name="country"
             type="com.example.countries.network.ContriesPhoto" />
     </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/country_flag"
         android:layout_width="wrap_content"
         android:layout_height="170dp"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:padding="2dp"
         app:imageUrl="@{country.flag}"
        />
-<!--    <TextView-->
-<!--        android:id="@+id/country_name"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@{photo.name}"/>-->
+    <TextView
+        android:id="@+id/country_name"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/country_flag"
+        app:layout_constraintStart_toStartOf="@id/country_flag"
+        app:layout_constraintEnd_toEndOf="@id/country_flag"
+        android:layout_height="wrap_content"
+        android:text="@{country.name}"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

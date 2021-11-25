@@ -1,5 +1,7 @@
 package com.example.countries
 
+import android.util.Log
+import android.widget.ImageView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,6 +21,8 @@ class ConutriesViewModel : ViewModel() {
    private val _listCountry = MutableLiveData<List<ContriesPhoto>>()
     val listCountry: LiveData<List<ContriesPhoto>> = _listCountry
 
+
+
     init {
         getCountriesPhotos()
     }
@@ -27,12 +31,15 @@ class ConutriesViewModel : ViewModel() {
         viewModelScope.launch {
 
             try {
-                val listResult = CountriesApi.retrofitService.getPhotos()
-                _listCountry.value = CountriesApi.retrofitService.getPhotos().data
-                _status.value = "Success: ${listCountry.value?.size} Countries photos retrieved"
+                val listResult = CountriesApi.retrofitService.getPhotos().msg
+                Log.e("TAG", "getCountriesPhotos: try")
+             _listCountry.value = CountriesApi.retrofitService.getPhotos().data
+                Log.e("TAG", "getCountriesPhotos: ${_listCountry!!.value?.size}", )
+//                _status.value = "Success: ${listCountry.value?.size} Countries photos retrieved"
+                _status.value = "Success: ${listResult} Countries photos retrieved"
             } catch (e: Exception) {
                 _status.value = "Failure: ${e.message}"
-
+                Log.e("TAG", "getCountriesPhotos: error")
             }
         }
     }

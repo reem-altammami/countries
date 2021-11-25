@@ -29,11 +29,11 @@
             tools:itemCount="16"
             app:listData="@{viewModel.listCountry}"
             tools:listitem="@layout/grid_view_item"  />
-        <TextView
-            android:id="@+id/country"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@{viewModel.status}" />
+<!--        <TextView-->
+<!--            android:id="@+id/country"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:text="@{viewModel.status}" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
