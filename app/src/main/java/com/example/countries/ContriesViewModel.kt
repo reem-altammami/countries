@@ -4,14 +4,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.countries.network.ContriesPhoto
 import com.example.countries.network.CountriesApi
+import com.example.countries.network.Response
 import kotlinx.coroutines.launch
 
 class ConutriesViewModel : ViewModel() {
 
+
     private val _status = MutableLiveData<String>()
 
     val status: LiveData<String> = _status
+
+   private val _listCountry = MutableLiveData<List<ContriesPhoto>>()
+    val listCountry: LiveData<List<ContriesPhoto>> = _listCountry
+
     init {
         getCountriesPhotos()
     }
@@ -21,7 +28,8 @@ class ConutriesViewModel : ViewModel() {
 
             try {
                 val listResult = CountriesApi.retrofitService.getPhotos()
-                _status.value = "Success: ${listResult.data.size} Countries photos retrieved"
+                _listCountry.value = CountriesApi.retrofitService.getPhotos().data
+                _status.value = "Success: ${listCountry.value?.size} Countries photos retrieved"
             } catch (e: Exception) {
                 _status.value = "Failure: ${e.message}"
 

@@ -10,7 +10,8 @@ import com.example.countries.databinding.FragmentCountriesBinding
 
 
 class CountriesFragment : Fragment() {
-
+    private var _binding : FragmentCountriesBinding? = null
+    val binding get() = _binding!!
     private val viewModel: ConutriesViewModel by viewModels()
 
 
@@ -18,12 +19,16 @@ class CountriesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentCountriesBinding.inflate(inflater)
-
-        binding.lifecycleOwner = this
-
-        binding.viewModel = viewModel
-
+        _binding = FragmentCountriesBinding.inflate(inflater,container,false)
+        // Inflate the layout for this fragment
         return binding.root
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.lifecycleOwner = this@CountriesFragment
+        binding.viewModel = viewModel
+        binding.photosGrid.adapter = PhotoGridAdapter()
     }
 }

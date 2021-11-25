@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/countries/app/src/main/res/drawable/ic_broken_image.xml" value="0.11944444444444445" />
+        <entry key="..\:/countries/app/src/main/res/drawable/loading_img.xml" value="0.11944444444444445" />
         <entry key="..\:/countries/app/src/main/res/layout/activity_main.xml" value="0.11322188449848024" />
-        <entry key="..\:/countries/app/src/main/res/layout/fragment_countries.xml" value="0.11322188449848024" />
+        <entry key="..\:/countries/app/src/main/res/layout/fragment_countries.xml" value="0.1" />
+        <entry key="..\:/countries/app/src/main/res/layout/grid_view_item.xml" value="0.1" />
       </map>
     </option>
   </component>
